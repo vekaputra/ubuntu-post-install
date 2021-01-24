@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set temporary download directory
-mkdir temp
+mkdir ~/temp
 
 # --- BASIC REQUIREMENT
 sudo apt install curl chromium-browser build-essential -y
@@ -79,7 +79,7 @@ flutter precache
 
 # --- COPY docker
 mkdir -p ~/docker/pgdata
-cp -a ~/ubuntu-post-install/docker/docker-composer.yaml ~/docker/docker-compose.yaml
+cp -a ~/ubuntu-post-install/docker/docker-compose.yaml ~/docker/docker-compose.yaml
 
 # --- Remove temp
 rm -rf ~/temp
