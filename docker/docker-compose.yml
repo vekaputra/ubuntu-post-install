@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: root
+  redis:
+    image: redis:latest
+    restart: always
+    command: 'redis-server --requirepass root'
+    volumes:
+      - redis:/data
+    ports:
+      - "6379:6379"
+volumes:
+  redis:

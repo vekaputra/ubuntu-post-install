@@ -1,0 +1,6 @@
+alias neu-db="sudo openvpn ~/.ssh/client.ovpn"
+alias cf-vpn="sudo openvpn ~/.ssh/cashfazz_valen_cashfazz-prod.ovpn"
+
+alias py-serve="python -m SimpleHTTPServer 8000"
+
+alias run-es='docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.10.1'
