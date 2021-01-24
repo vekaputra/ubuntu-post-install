@@ -6,9 +6,6 @@ mkdir ~/temp
 # --- BASIC REQUIREMENT
 sudo apt install curl chromium-browser build-essential -y
 
-# --- ZSH
-sudo apt install zsh -y
-
 # --- TELEGRAM
 curl -o ~/temp/tsetup.2.5.1.tar.xz https://updates.tdesktop.com/tlinux/tsetup.2.5.1.tar.xz
 sudo tar -C /usr/local -xzf ~/temp/tsetup.2.5.1.tar.xz
@@ -91,6 +88,6 @@ cp -a ~/ubuntu-post-install/docker/docker-compose.yaml ~/docker/docker-compose.y
 rm -rf ~/temp
 
 # --- Tools to be installed manually
-## Jetbrains Toolbox
+## Jetbrains Toolbox + IDEA + DataGrip
 ## Android SDK and Emulator https://medium.com/michael-wallace/how-to-install-android-sdk-and-setup-avd-emulator-without-android-studio-aeb55c014264
-## 
+## Setup ZSH `sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
