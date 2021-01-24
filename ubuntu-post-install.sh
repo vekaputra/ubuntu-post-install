@@ -67,6 +67,9 @@ sudo apt -f install ~/temp/virtualbox.deb -y
 # --- CALIBRE
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 
+# --- VSCode
+sudo snap install --classic code
+
 # --- VLC
 sudo snap install vlc
 
@@ -86,3 +89,8 @@ cp -a ~/ubuntu-post-install/docker/docker-compose.yaml ~/docker/docker-compose.y
 
 # --- Remove temp
 rm -rf ~/temp
+
+# --- Tools to be installed manually
+## Jetbrains Toolbox
+## Android SDK and Emulator https://medium.com/michael-wallace/how-to-install-android-sdk-and-setup-avd-emulator-without-android-studio-aeb55c014264
+## 
