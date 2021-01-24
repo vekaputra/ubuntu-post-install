@@ -64,6 +64,9 @@ sudo apt -f install ~/temp/slack.deb -y
 curl -o ~/temp/virtualbox.deb https://download.virtualbox.org/virtualbox/6.1.18/virtualbox-6.1_6.1.18-142142~Ubuntu~eoan_amd64.deb
 sudo apt -f install ~/temp/virtualbox.deb -y
 
+# --- CALIBRE
+sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
 # --- COPY dotfiles
 cp -a ~/post-install/dotfiles/. ~
 source ~/.zshrc
@@ -75,7 +78,7 @@ go get google.golang.org/protobuf/cmd/protoc-gen-go google.golang.org/grpc/cmd/p
 flutter precache
 
 # --- COPY docker
-mkdir ~/docker
+mkdir -p ~/docker/pgdata
 cp -a ~/post-install/docker/docker-composer.yaml ~/docker/docker-compose.yaml
 
 # --- Remove temp
