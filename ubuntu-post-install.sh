@@ -51,7 +51,7 @@ curl -fSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" -y
 sudo apt update
 apt-cache policy docker-ce
-sudo apt install docker-ce
+sudo apt install docker-ce -y
 
 ## allow docker without sudo
 sudo usermod -aG docker ${USER}
@@ -68,7 +68,7 @@ sudo apt -f install ~/temp/virtualbox.deb -y
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 
 # --- COPY dotfiles
-cp -a ~/post-install/dotfiles/. ~
+cp -a ~/ubuntu-post-install/dotfiles/. ~
 source ~/.zshrc
 
 # --- GRPC
@@ -79,7 +79,7 @@ flutter precache
 
 # --- COPY docker
 mkdir -p ~/docker/pgdata
-cp -a ~/post-install/docker/docker-composer.yaml ~/docker/docker-compose.yaml
+cp -a ~/ubuntu-post-install/docker/docker-composer.yaml ~/docker/docker-compose.yaml
 
 # --- Remove temp
 rm -rf ~/temp
