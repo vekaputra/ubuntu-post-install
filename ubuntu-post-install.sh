@@ -4,7 +4,7 @@
 mkdir temp
 
 # --- BASIC REQUIREMENT
-sudo apt install curl chromium-browser build-essential git -y
+sudo apt install curl chromium-browser build-essential -y
 
 # --- ZSH
 sudo apt install zsh -y
