@@ -67,6 +67,9 @@ sudo apt -f install ~/temp/virtualbox.deb -y
 # --- CALIBRE
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 
+# --- VLC
+sudo snap install vlc
+
 # --- COPY dotfiles
 cp -a ~/ubuntu-post-install/dotfiles/. ~
 source ~/.zshrc
