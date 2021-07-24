@@ -18,7 +18,7 @@
 - [x] xirtualBox + Windows OxA
 
 ### Productixity
-- [x] Telegram
+- [ ] Telegram (https://desktop.telegram.org/)
 - [x] Slack
 - [x] Chrome
 - [x] Zsh 
