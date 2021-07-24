@@ -4,6 +4,7 @@
 mkdir ~/temp
 
 # --- BASIC REQUIREMENT
+sudo apt update
 sudo apt install curl build-essential zsh software-properties-common unzip -y
 sudo add-apt-repository ppa:ondrej/php -y
 
