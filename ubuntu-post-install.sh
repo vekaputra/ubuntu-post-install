@@ -5,24 +5,20 @@ mkdir ~/temp
 
 # --- BASIC REQUIREMENT
 sudo apt update
-sudo apt install curl build-essential zsh software-properties-common unzip -y
+sudo apt install curl build-essential zsh software-properties-common unzip google-chrome-stable -y
 sudo add-apt-repository ppa:ondrej/php -y
 
 # --- PHP 8
 # https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04/
-sudo apt install php8.0 php8.0-fpm php8.0-common php8.0-bcmath php8.0-json php8.0-mbstring php8.0-mysql php8.0-xml php8.0-zip
+sudo apt update
+sudo apt install php8.0 php8.0-fpm php8.0-common php8.0-bcmath php8.0-mbstring php8.0-mysql php8.0-xml php8.0-zip
 
 # --- COMPOSER
 curl -sS https://getcomposer.org/installer -o ~/temp/composer-setup.php
 sudo php ~/temp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-# --- CHROME
-curl -o ~/temp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt -f install ~/temp/chrome.deb
-
 # --- TELEGRAM
-curl -o ~/temp/tsetup.2.5.1.tar.xz https://updates.tdesktop.com/tlinux/tsetup.2.5.1.tar.xz
-sudo tar -C /usr/local -xzf ~/temp/tsetup.2.5.1.tar.xz
+sudo snap install telegram-desktop
 
 # DEVELOPMENT
 
