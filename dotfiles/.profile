@@ -2,7 +2,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go/
 export GO111MODULE=on
 export GOPRIVATE=github.com/payfazz
-export PATH=$GOROOT/bin:$GOPATH/bin:/usr/bin/protobuf/bin:$HOME/.composer/vendor/bin:$HOME/.flutter/flutter/bin:/opt/android-studio/bin:$PATH
+export PATH=$GOROOT/bin:$GOPATH/bin:/usr/bin/protobuf/bin:$HOME/.composer/vendor/bin:$PATH
 
 export DB_HOST=localhost
 export DB_PORT=5432

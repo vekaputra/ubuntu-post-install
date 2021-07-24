@@ -4,7 +4,20 @@
 mkdir ~/temp
 
 # --- BASIC REQUIREMENT
-sudo apt install curl chromium-browser build-essential -y
+sudo apt install curl build-essential zsh software-properties-common unzip -y
+sudo add-apt-repository ppa:ondrej/php -y
+
+# --- PHP 8
+# https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04/
+sudo apt install php8.0 php8.0-fpm php8.0-common php8.0-bcmath php8.0-json php8.0-mbstring php8.0-mysql php8.0-xml php8.0-zip
+
+# --- COMPOSER
+curl -sS https://getcomposer.org/installer -o ~/temp/composer-setup.php
+sudo php ~/temp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+# --- CHROME
+curl -o ~/temp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt -f install ~/temp/chrome.deb
 
 # --- TELEGRAM
 curl -o ~/temp/tsetup.2.5.1.tar.xz https://updates.tdesktop.com/tlinux/tsetup.2.5.1.tar.xz
@@ -12,33 +25,16 @@ sudo tar -C /usr/local -xzf ~/temp/tsetup.2.5.1.tar.xz
 
 # DEVELOPMENT
 
-# --- GOLANG
+# --- REDIS TOOLS
+sudo apt-get install redis-tools -y
 
-## install
+# --- GOLANG
 curl -o ~/temp/go1.15.7.linux-amd64.tar.gz https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf ~/temp/go1.15.7.linux-amd64.tar.gz
 
-# --- AWS CORRETTO 1.8 OPENJDK
-curl -fSL https://apt.corretto.aws/corretto.key | sudo apt-key add - 
-sudo add-apt-repository 'deb https://apt.corretto.aws stable main' -y
-sudo apt update
-sudo apt install java-1.8.0-amazon-corretto-jdk -y
-
 # --- NODE
-
-## nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 nvm install node
-
-# --- FLUTTER
-
-## flutter
-mkdir ~/.flutter
-curl -o ~/temp/flutter_linux_1.22.5-stable.tar.xz https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.22.5-stable.tar.xz
-tar -C ~/.flutter -xf ~/temp/flutter_linux_1.22.5-stable.tar.xz
-
-## kvm https://developer.android.com/studio/run/emulator-acceleration#vm-linux
-sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
 
 # --- DOCKER
 
@@ -65,20 +61,36 @@ sudo apt -f install ~/temp/virtualbox.deb -y
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 
 # --- VSCode
-sudo snap install --classic code
+curl -o ~/temp/code.deb https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+sudo apt -f install ~/temp/code.deb
 
 # --- VLC
 sudo snap install vlc
+
+# --- Bitwarden
+sudo snap install bw
+
+# --- Simplenote
+curl -o ~/temp/simplenote.deb https://github.com/Automattic/simplenote-electron/releases/download/v2.14.0/Simplenote-linux-2.14.0-amd64.deb
+sudo apt -f install ~/temp/simplenote.deb
 
 # --- COPY dotfiles
 cp -a ~/ubuntu-post-install/dotfiles/. ~
 source ~/.zshrc
 
 # --- GRPC
-go get google.golang.org/protobuf/cmd/protoc-gen-go google.golang.org/grpc/cmd/protoc-gen-go-grpc
+sudo apt install protobuf-compiler -y
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 
-# --- flutter precache
-flutter precache
+# --- NGINX
+sudo apt install nginx -y
+sudo ufw allow 'Nginx HTTP'
+sudo systemctl enable nginx
+
+# --- Jetbrains Toolbox
+curl -o ~/temp/jt-toolbox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.21.9547.tar.gz
+sudo tar -C /usr/local -xzf ~/temp/jt-toolbox.tar.gz
 
 # --- COPY docker
 mkdir -p ~/docker/pgdata
@@ -89,5 +101,5 @@ rm -rf ~/temp
 
 # --- Tools to be installed manually
 ## Jetbrains Toolbox + IDEA + DataGrip
-## Android SDK and Emulator https://medium.com/michael-wallace/how-to-install-android-sdk-and-setup-avd-emulator-without-android-studio-aeb55c014264
 ## Setup ZSH `sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+## Use zsh p10k theme
