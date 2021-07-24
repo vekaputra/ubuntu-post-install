@@ -5,7 +5,7 @@ mkdir ~/temp
 
 # --- BASIC REQUIREMENT
 sudo apt update
-sudo apt install curl build-essential zsh software-properties-common unzip google-chrome-stable -y
+sudo apt install curl build-essential zsh software-properties-common unzip -y
 sudo add-apt-repository ppa:ondrej/php -y
 
 # --- PHP 8
@@ -19,6 +19,10 @@ sudo php ~/temp/composer-setup.php --install-dir=/usr/local/bin --filename=compo
 
 # --- TELEGRAM
 sudo snap install telegram-desktop
+
+# --- CHROME
+curl -o ~/temp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt -f install ~/temp/chrome.deb
 
 # DEVELOPMENT
 
