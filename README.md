@@ -5,7 +5,7 @@
 - [x] GRPC
 - [x] Docker
 - [x] Jetbrains Toolbox
-- [x] xSCode
+- [x] VSCode
 - [x] NodeJS
 - [x] PHP 8
 - [x] Composer
