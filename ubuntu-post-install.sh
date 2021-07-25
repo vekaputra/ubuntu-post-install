@@ -18,7 +18,8 @@ curl -sS https://getcomposer.org/installer -o ~/temp/composer-setup.php
 sudo php ~/temp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # --- TELEGRAM
-# sudo snap install telegram-desktop
+# curl -o ~/temp/tsetup.2.8.10.tar.xz https://updates.tdesktop.com/tlinux/tsetup.2.8.10.tar.xz
+# sudo tar -C /usr/local -xzf ~/temp/tsetup.2.8.10.tar.xz
 
 # --- CHROME
 curl -o ~/temp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
