@@ -33,6 +33,11 @@ sudo apt-get install redis-tools -y
 curl -o ~/temp/go1.15.7.linux-amd64.tar.gz https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf ~/temp/go1.15.7.linux-amd64.tar.gz
 
+# --- GRPC
+sudo apt install protobuf-compiler -y
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
+
 # --- NODE
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 nvm install node
@@ -78,11 +83,6 @@ sudo apt -f install ~/temp/simplenote.deb
 # --- COPY dotfiles
 cp -a ~/ubuntu-post-install/dotfiles/. ~
 source ~/.zshrc
-
-# --- GRPC
-sudo apt install protobuf-compiler -y
-go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 
 # --- NGINX
 sudo apt install nginx -y
