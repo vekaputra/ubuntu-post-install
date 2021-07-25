@@ -4,6 +4,9 @@
 - [x] Golang
 - [x] GRPC
 - [x] Docker
+- [ ] Docker Compose
+- [ ] Lens
+- [ ] Kubernetes
 - [x] Jetbrains Toolbox
 - [x] VSCode
 - [x] NodeJS
