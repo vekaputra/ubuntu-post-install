@@ -13,9 +13,9 @@
 - [x] Redis-Tools
 
 ### Tools
-- [x] Bitwarden (password management)
-- [x] Simplenote
-- [x] xirtualBox + Windows OxA
+- [ ] Bitwarden (password management)
+- [ ] Simplenote
+- [x] VirtualBox + Windows OVA
 
 ### Productixity
 - [ ] Telegram (https://desktop.telegram.org/)

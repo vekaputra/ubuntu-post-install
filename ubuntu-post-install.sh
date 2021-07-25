@@ -28,16 +28,14 @@ sudo apt -f install ~/temp/chrome.deb
 # DEVELOPMENT
 
 # --- REDIS TOOLS
-sudo apt-get install redis-tools -y
+sudo apt install redis-tools -y
 
 # --- GOLANG
-curl -o ~/temp/go1.15.7.linux-amd64.tar.gz https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf ~/temp/go1.15.7.linux-amd64.tar.gz
+curl -o ~/temp/go1.15.14.linux-amd64.tar.gz https://dl.google.com/go/go1.15.14.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf ~/temp/go1.15.14.linux-amd64.tar.gz
 
 # --- GRPC
 sudo apt install protobuf-compiler -y
-go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 
 # --- NODE
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
@@ -57,7 +55,7 @@ sudo apt install docker-ce -y
 sudo usermod -aG docker ${USER}
 
 # --- SLACK
-curl -o ~/temp/slack.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-4.12.0-amd64.deb
+curl -o ~/temp/slack.deb https://downloads.slack-edge.com/releases/linux/4.17.0/prod/x64/slack-desktop-4.17.0-amd64.deb
 sudo apt -f install ~/temp/slack.deb -y
 
 # --- VIRTUALBOX
@@ -74,16 +72,8 @@ sudo apt -f install ~/temp/code.deb
 # --- VLC
 sudo snap install vlc
 
-# --- Bitwarden
-sudo snap install bw
-
-# --- Simplenote
-curl -o ~/temp/simplenote.deb https://github.com/Automattic/simplenote-electron/releases/download/v2.14.0/Simplenote-linux-2.14.0-amd64.deb
-sudo apt -f install ~/temp/simplenote.deb
-
 # --- COPY dotfiles
 cp -a ~/ubuntu-post-install/dotfiles/. ~
-source ~/.zshrc
 
 # --- NGINX
 sudo apt install nginx -y
@@ -94,9 +84,18 @@ sudo systemctl enable nginx
 curl -o ~/temp/jt-toolbox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.21.9547.tar.gz
 sudo tar -C /usr/local -xzf ~/temp/jt-toolbox.tar.gz
 
+# --- Protoc gen go
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go/
+export GO111MODULE=on
+export PATH=$GOROOT/bin:$GOPATH/bin:/usr/bin/protobuf/bin:$HOME/.composer/vendor/bin:$PATH
+
+go get google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+go get google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
+
 # --- COPY docker
 mkdir -p ~/docker/pgdata
-cp -a ~/ubuntu-post-install/docker/docker-compose.yaml ~/docker/docker-compose.yaml
+cp -a ~/ubuntu-post-install/docker/docker-compose.yml ~/docker/docker-compose.yml
 
 # --- Remove temp
 rm -rf ~/temp
