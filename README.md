@@ -1,12 +1,13 @@
 ## Apps List
 
-### Dexelopment
+### Development
 - [x] Golang
 - [x] GRPC
 - [x] Docker
 - [ ] Docker Compose
 - [ ] Lens
 - [ ] Kubernetes
+- [ ] OpenVPN
 - [x] Jetbrains Toolbox
 - [x] VSCode
 - [x] NodeJS
@@ -20,7 +21,7 @@
 - [ ] Simplenote
 - [x] VirtualBox + Windows OVA
 
-### Productixity
+### Productivity
 - [ ] Telegram (https://desktop.telegram.org/)
 - [x] Slack
 - [x] Chrome
